@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-app="index">
+		
+		<div ng-controller="demo">
+			<button ng-click="count=count+1">点击</button>
+			{{count}}
+			<button ng-click="start(this)" ng-mouseover="over()">添加事件</button>
+		</div>
+		
+	</body>
+	<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		//1. 实例化应用
+		
+		var index = angular.module('index',[]);
+		
+		//2. 书写控制器
+		
+		index.controller('demo',['$scope',function($scope){
+			
+			$scope.count = 0;
+			
+			$scope.start = function(a,b){
+				
+				console.log(b)
+				
+			}
+			
+			$scope.over = function(){
+				
+				console.log(777)
+			}
+		
+		}]);
+		
+	</script>
+	
+</html>

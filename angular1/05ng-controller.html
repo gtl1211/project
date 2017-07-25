@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-app="nick">
+		
+		<div ng-controller="demo">
+			{{name}}
+		</div>
+		<div ng-controller="test">
+			{{name}}
+			{{title}}
+		</div>
+		
+	</body>
+	<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		//1. 如果ng-app有值 一定要获取这个应用  注意实例化应用一定要写[]注入依赖 没有也得写空数组
+		
+		var home = angular.module('nick',[]);
+		
+		//2. 定义控制器就必须要写控制器
+		
+		home.controller('demo',function($scope){
+			//3. $scope是 该控制器内的 模型（数据） 它的作用域仅限当前控制器
+			console.log($scope)
+			
+			//3.1 向控制器绑定数据
+			$scope.name = 'nick';
+			
+		})
+		
+		
+		//4.再添加一个控制器
+		home.controller('test',function($scope){
+			//3. $scope是 该控制器内的 模型（数据） 它的作用域仅限当前控制器
+			console.log($scope)
+			
+			$scope.title = '我是控制器';
+			
+		})
+		
+	</script>
+</html>

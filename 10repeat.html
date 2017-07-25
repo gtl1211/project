@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-app="index" ng-controller="index">
+		
+		<h1>新闻标题列表</h1>
+		<ul>
+			<li ng-repeat="data in newsList">{{data}}</li>
+		</ul>
+		<h2>遍历另一种方式</h2>
+		<ul>
+			<li ng-repeat="(index,value) in newsList">当前索引值是：{{index}}当前值是：{{value}}</li>
+		</ul>
+		<h3>表格数据</h3>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>标题</th>
+				<th>时间</th>
+				<th>操作</th>
+			</tr>
+			<tr ng-repeat="(index,data) in tableData track by $index">
+				<td>{{data.id}}</td>
+				<td>{{data.title}}</td>
+				<td>{{data.time}}</td>
+				<td><a href="#">删除{{$index}}***{{index}}</a></td>
+			</tr>
+		</table>
+	</body>
+	<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	
+		// ng-repeat="data in xxx" ng-repeat写在谁身上 谁被重复
+		// 变量 in 数据  这个变量就是遍历数据时当前的数据
+		
+	
+		
+		var index = angular.module('index',[]);
+		
+		index.controller('index',function($scope){
+			
+			//1.保存新闻列表
+			
+			$scope.newsList = '新闻1 新闻2 新闻3'.split(/\s+/);
+			
+			console.log($scope.newsList)
+			
+			//2. 生成表格数据
+			
+			$scope.tableData = [
+				
+				{
+					id:1,
+					title:'我是新闻1',
+					time:new Date().toLocaleTimeString()
+				},
+				{
+					id:2,
+					title:'我是新闻1',
+					time:new Date().toLocaleTimeString()
+				},
+				{
+					id:3,
+					title:'我是新闻1',
+					time:new Date().toLocaleTimeString()
+				},
+				{
+					id:4,
+					title:'我是新闻1',
+					time:new Date().toLocaleTimeString()
+				},
+				{
+					id:5,
+					title:'我是新闻1',
+					time:new Date().toLocaleTimeString()
+				},
+				{
+					id:6,
+					title:'我是新闻1',
+					time:new Date().toLocaleTimeString()
+				},
+				{
+					id:7,
+					title:'我是新闻1',
+					time:new Date().toLocaleTimeString()
+				},
+				{
+					id:8,
+					title:'我是新闻1',
+					time:new Date().toLocaleTimeString()
+				}
+				
+			]
+			
+		})
+		
+		
+	</script>
+</html>
